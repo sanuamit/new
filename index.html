@@ -24,6 +24,38 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        @media (max-width: 768px) {
+            html {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            html {
+                font-size: 12px;
+            }
+        }
+
+        /* iPhone SE */
+        @media (max-width: 375px) {
+            html {
+                font-size: 11px;
+            }
+        }
+
+        /* iPhone 12/13 Mini */
+        @media (max-width: 360px) {
+            html {
+                font-size: 10px;
+            }
         }
 
         body {
@@ -32,6 +64,8 @@
             color: var(--text-light);
             min-height: 100vh;
             overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
         .navbar {
@@ -39,35 +73,58 @@
             top: 0;
             width: 100%;
             background: rgba(255, 255, 255, 0.05);
+            -webkit-backdrop-filter: blur(15px);
             backdrop-filter: blur(15px);
             border-bottom: 1px solid var(--glass-border);
-            padding: 1rem 0;
+            padding: 0.8rem 0;
             z-index: 1000;
         }
 
         .nav-container {
+            width: 90%;
             max-width: 1200px;
             margin: auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
+            padding: 0 1rem;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             align-items: center;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .nav-links a {
             color: var(--text-light);
             text-decoration: none;
             position: relative;
-            padding: 5px 0;
+            padding: 0.5rem;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .nav-links a::after {
@@ -91,19 +148,26 @@
             font-weight: 500;
             transition: var(--transition);
             cursor: pointer;
-            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--accent-color);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .resume-btn:hover {
-            color: var(--accent-color);
+            background: var(--accent-color);
+            color: var(--text-dark);
             transform: translateY(-2px);
         }
 
         .container {
+            width: 90%;
             max-width: 1200px;
             margin: auto;
-            padding: 20px;
-            margin-top: 80px;
+            padding: 1rem;
+            margin-top: 5rem;
         }
 
         header {
@@ -112,28 +176,14 @@
             animation: gradient 15s ease infinite;
             color: var(--text-light);
             text-align: center;
-            padding: 7rem 0;
+            padding: clamp(4rem, 10vw, 7rem) 1rem;
             clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
             margin-bottom: 3rem;
             position: relative;
         }
 
-        @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
         header h1 {
-            font-size: 4.5rem;
+            font-size: clamp(2rem, 5vw, 4rem);
             margin-bottom: 1rem;
             animation: fadeInDown 1s ease;
             text-shadow: 3px 3px 6px rgba(80, 156, 243, 0.4);
@@ -145,33 +195,32 @@
         }
 
         header p {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            margin: 1rem 0;
             animation: fadeInUp 1s ease;
-            font-size: 1.8rem;
-            margin: 1.5rem 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            font-weight: 500;
         }
 
         .location {
             margin-top: 1.5rem;
-            font-size: 1.2rem;
+            font-size: clamp(0.8rem, 1.5vw, 1rem);
             opacity: 0.95;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 0.8rem;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            flex-wrap: wrap;
+            padding: 0 1rem;
         }
 
         section {
             background: rgba(255, 255, 255, 0.05);
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             border: 1px solid var(--glass-border);
             border-radius: 20px;
-            padding: 2.5rem;
-            margin: 2.5rem 0;
+            padding: clamp(1.5rem, 3vw, 2.5rem);
+            margin: 2rem 0;
             transition: var(--transition);
-            transform: translateY(0);
         }
 
         section:hover {
@@ -180,11 +229,10 @@
         }
 
         h2 {
-            color: var(--text-light);
+            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
             margin-bottom: 1.5rem;
             position: relative;
             display: inline-block;
-            font-size: 2rem;
         }
 
         h2::after {
@@ -200,165 +248,310 @@
         .skill-list,
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
         }
 
-        .skill-item {
+        .skill-item,
+        .project-card {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--text-light);
-            padding: 15px;
+            padding: 1rem;
             border-radius: 12px;
             text-align: center;
             transition: var(--transition);
             border: 1px solid var(--glass-border);
-            backdrop-filter: blur(5px);
+            font-size: clamp(0.8rem, 1.5vw, 1rem);
         }
 
-        .skill-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(255, 0, 128, 0.3);
-        }
-
-        .project-card {
-            background: rgba(45, 27, 105, 0.3);
-            color: var(--text-light);
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(5px);
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: 0.5s;
-        }
-
-        .project-card:hover::before {
-            left: 100%;
-        }
-
-        .education-item {
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--glass-border);
-        }
-
-        .education-item h3 {
-            color: var(--accent-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .education-item p {
-            color: var(--text-light);
-            opacity: 0.9;
-        }
-
+        .education-item,
         .experience-item {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             padding: 1.5rem;
             border-radius: 10px;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--glass-border);
         }
 
-        .experience-item h3 {
-            color: var(--accent-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .experience-item .company {
-            color: var(--secondary-color);
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-
         .experience-item ul {
-            list-style-type: none;
-            margin-left: 0.5rem;
-            margin-top: 0.5rem;
-        }
-
-        .experience-item ul li {
-            margin: 0.5rem 0;
             padding-left: 1.5rem;
-            position: relative;
+            margin-top: 1rem;
+            list-style-position: inside;
         }
 
-        .experience-item ul li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
+        .experience-item li {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            text-align: left;
+            word-wrap: break-word;
+        }
+
+        .experience-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .company {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .company-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .date {
+            font-size: 0.8rem;
+            opacity: 0.8;
         }
 
         .contact-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: clamp(1rem, 3vw, 2rem);
+            flex-wrap: wrap;
+            margin: 2rem 0;
         }
 
         .contact-links a {
             color: var(--text-light);
-            font-size: 2.5rem;
+            font-size: clamp(1.5rem, 3vw, 2rem);
             transition: var(--transition);
-            position: relative;
         }
 
         .contact-links a:hover {
             color: var(--accent-color);
-            transform: translateY(-5px) scale(1.1);
-        }
-
-        .declaration {
-            font-style: italic;
-            text-align: center;
-            margin-top: 2rem;
-            opacity: 0.9;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
+            transform: translateY(-3px);
         }
 
         footer {
             text-align: center;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid var(--glass-border);
+            padding: 2rem 1rem;
+            background: rgba(0, 0, 0, 0.2);
             margin-top: 3rem;
         }
 
+        @media (max-width: 992px) {
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .skill-list,
+            .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+
+            .experience-item {
+                padding: 1.2rem;
+            }
+
+            .experience-item li {
+                font-size: 0.85rem;
+            }
+        }
+
         @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.1);
+                -webkit-backdrop-filter: blur(10px);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 1rem;
+                text-align: center;
+                border-bottom: 1px solid var(--glass-border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 0.8rem;
             }
 
             header {
-                padding: 3rem 0;
+                padding: 4rem 1rem;
             }
 
-            header h1 {
-                font-size: 2.5rem;
+            .skill-list,
+            .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             }
 
-            .container {
-                padding: 10px;
+            .experience-item {
+                padding: 1rem;
+            }
+
+            .experience-item li {
+                font-size: 0.8rem;
+                padding-right: 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0 0.5rem;
+            }
+
+            header {
+                padding: 3rem 0.5rem;
+            }
+
+            .location {
+                flex-direction: column;
+                text-align: center;
             }
 
             section {
-                padding: 1.5rem;
+                padding: 1rem;
+            }
+
+            .skill-list,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-links {
+                gap: 1rem;
+            }
+
+            .experience-item {
+                padding: 0.8rem;
+            }
+
+            .experience-item li {
+                font-size: 0.75rem;
+                margin-bottom: 0.4rem;
+            }
+
+            .company {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        /* iPhone SE and similar small devices */
+        @media (max-width: 375px) {
+            .logo {
+                font-size: 1.1rem;
+            }
+
+            header h1 {
+                font-size: 1.6rem;
+            }
+
+            header p {
+                font-size: 0.9rem;
+            }
+
+            .skill-item,
+            .project-card {
+                padding: 0.7rem;
+                font-size: 0.8rem;
+            }
+
+            .experience-item {
+                padding: 0.6rem;
+            }
+
+            .experience-item li {
+                font-size: 0.7rem;
+            }
+
+            .nav-links a {
+                font-size: 0.8rem;
+            }
+
+            .resume-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .contact-links a {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* iPhone 12/13 Mini and similar extra small devices */
+        @media (max-width: 360px) {
+            .logo {
+                font-size: 1rem;
+            }
+
+            header h1 {
+                font-size: 1.4rem;
+            }
+
+            header p {
+                font-size: 0.8rem;
+            }
+
+            .skill-item,
+            .project-card {
+                padding: 0.6rem;
+                font-size: 0.75rem;
+            }
+
+            .experience-item {
+                padding: 0.5rem;
+            }
+
+            .experience-item li {
+                font-size: 0.65rem;
+            }
+
+            .nav-links a {
+                font-size: 0.75rem;
+            }
+
+            .resume-btn {
+                padding: 0.3rem 0.7rem;
+                font-size: 0.75rem;
+            }
+
+            .contact-links a {
+                font-size: 1.2rem;
+            }
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
     </style>
@@ -367,15 +560,22 @@
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <h3 style="color: var(--text-light)"><i class="fas fa-graduation-cap"></i> AKP</h3>
+            <h3 class="logo"><i class="fas fa-graduation-cap"></i> AKP</h3>
+            <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
             <div class="nav-links">
-                <a href="#about">🎯 About</a>
-                <a href="#experience">💼 Experience</a>
-                <a href="#education">🎓 Education</a>
-                <a href="#skills">🛠️ Skills</a>
-                <a href="#projects">🚀 Projects</a>
-                <a href="#contact">📧 Contact</a>
-                <a href="resume.pdf" download class="resume-btn">📄 Resume <i class="fas fa-download"></i></a>
+                <a href="#about" class="nav-link"><span class="nav-icon">🎯</span><span class="nav-text">About</span></a>
+                <a href="#experience" class="nav-link"><span class="nav-icon">💼</span><span class="nav-text">Experience</span></a>
+                <a href="#education" class="nav-link"><span class="nav-icon">🎓</span><span class="nav-text">Education</span></a>
+                <a href="#skills" class="nav-link"><span class="nav-icon">🛠️</span><span class="nav-text">Skills</span></a>
+                <a href="#projects" class="nav-link"><span class="nav-icon">🚀</span><span class="nav-text">Projects</span></a>
+                <a href="#contact" class="nav-link"><span class="nav-icon">📧</span><span class="nav-text">Contact</span></a>
+                <a href="resume.pdf" download class="resume-btn">
+                    <span class="nav-icon">📄</span>
+                    <span class="nav-text">Resume</span>
+                    <i class="fas fa-download"></i>
+                </a>
             </div>
         </div>
     </nav>
@@ -401,28 +601,40 @@
             </p>
         </section>
 
-        <section id="experience">
+        <section id="experience" class="experience-section">
             <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
-            <div class="experience-item">
-                <h3><i class="fas fa-code"></i> Full-Stack Developer Intern</h3>
-                <p class="company"><i class="fas fa-building"></i> Graviton Web Technology, Bengaluru (Remote) | June
-                    2023 - December 2023</p>
-                <ul>
-                    <li>Developed responsive web interfaces using HTML, CSS, JavaScript, and frameworks like React.js,
-                        Angular, Next.js</li>
-                    <li>Worked on backend services using Node.js, Express.js, MongoDB, and MySQL</li>
-                    <li>Integrated APIs and implemented UI components for client projects</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3><i class="fas fa-code"></i> Web Development Intern</h3>
-                <p class="company"><i class="fas fa-building"></i> VeriTech Software IT Services, Noida (Remote) | March
-                    2024 - June 2024</p>
-                <ul>
-                    <li>Designed user-friendly interfaces using HTML, CSS3, JavaScript, React.js and Bootstrap</li>
-                    <li>Implemented responsive design principles and performance optimizations</li>
-                    <li>Collaborated with cross-functional teams using Agile methodologies</li>
-                </ul>
+            <div class="experience-container">
+                <div class="experience-item">
+                    <h3><i class="fas fa-code"></i> Full-Stack Developer Intern</h3>
+                    <p class="company">
+                        <i class="fas fa-building"></i>
+                        <span class="company-details">
+                            Graviton Web Technology, Bengaluru (Remote)
+                            <span class="date">June 2023 - December 2023</span>
+                        </span>
+                    </p>
+                    <ul>
+                        <li>Developed responsive web interfaces using HTML, CSS, JavaScript, and frameworks like React.js,
+                            Angular, Next.js</li>
+                        <li>Worked on backend services using Node.js, Express.js, MongoDB, and MySQL</li>
+                        <li>Integrated APIs and implemented UI components for client projects</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3><i class="fas fa-code"></i> Web Development Intern</h3>
+                    <p class="company">
+                        <i class="fas fa-building"></i>
+                        <span class="company-details">
+                            VeriTech Software IT Services, Noida (Remote)
+                            <span class="date">March 2024 - June 2024</span>
+                        </span>
+                    </p>
+                    <ul>
+                        <li>Designed user-friendly interfaces using HTML, CSS3, JavaScript, React.js and Bootstrap</li>
+                        <li>Implemented responsive design principles and performance optimizations</li>
+                        <li>Collaborated with cross-functional teams using Agile methodologies</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
@@ -499,14 +711,23 @@
     </footer>
 
     <script>
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
+                navLinks.classList.remove('active');
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
             });
         });
+
         window.addEventListener('scroll', function () {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
@@ -517,7 +738,17 @@
                 navbar.style.backdropFilter = 'blur(15px)';
             }
         });
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-container')) {
+                navLinks.classList.remove('active');
+            }
+        });
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                navLinks.classList.remove('active');
+            }
+        });
     </script>
 </body>
 
-</html
+</html>
