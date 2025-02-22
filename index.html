@@ -25,6 +25,7 @@
             padding: 0;
             box-sizing: border-box;
             -webkit-tap-highlight-color: transparent;
+            cursor: pointer;
         }
 
         html {
@@ -212,6 +213,15 @@
             padding: 0 1rem;
         }
 
+        /* Map styles */
+        .map-container {
+            width: 100%;
+            height: 300px;
+            margin-top: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
         section {
             background: rgba(255, 255, 255, 0.05);
             -webkit-backdrop-filter: blur(10px);
@@ -261,6 +271,17 @@
             transition: var(--transition);
             border: 1px solid var(--glass-border);
             font-size: clamp(0.8rem, 1.5vw, 1rem);
+        }
+
+        .project-card {
+            cursor: pointer;
+            color: white;
+            text-decoration: none;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 240, 120, 0.2);
         }
 
         .education-item,
@@ -318,7 +339,8 @@
         }
 
         .contact-links a {
-            color: var(--text-light);
+            color: white;
+            text-decoration: none;
             font-size: clamp(1.5rem, 3vw, 2rem);
             transition: var(--transition);
         }
@@ -528,9 +550,17 @@
         }
 
         @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         @keyframes fadeInDown {
@@ -538,6 +568,7 @@
                 opacity: 0;
                 transform: translateY(-20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -549,6 +580,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -560,18 +592,25 @@
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <h3 class="logo"><i class="fas fa-graduation-cap"></i> AKP</h3>
+            <h3 class="logo" onclick="window.location.href='https://www.linkedin.com/in/amit-kumar-pati-975351241'"><i
+                    class="fas fa-graduation-cap"></i> AKP</h3>
             <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
                 <i class="fas fa-bars"></i>
             </button>
             <div class="nav-links">
-                <a href="#about" class="nav-link"><span class="nav-icon">🎯</span><span class="nav-text">About</span></a>
-                <a href="#experience" class="nav-link"><span class="nav-icon">💼</span><span class="nav-text">Experience</span></a>
-                <a href="#education" class="nav-link"><span class="nav-icon">🎓</span><span class="nav-text">Education</span></a>
-                <a href="#skills" class="nav-link"><span class="nav-icon">🛠️</span><span class="nav-text">Skills</span></a>
-                <a href="#projects" class="nav-link"><span class="nav-icon">🚀</span><span class="nav-text">Projects</span></a>
-                <a href="#contact" class="nav-link"><span class="nav-icon">📧</span><span class="nav-text">Contact</span></a>
-                <a href="resume.pdf" download class="resume-btn">
+                <a href="#about" class="nav-link"><span class="nav-icon">🎯</span><span
+                        class="nav-text">About</span></a>
+                <a href="#experience" class="nav-link"><span class="nav-icon">💼</span><span
+                        class="nav-text">Experience</span></a>
+                <a href="#education" class="nav-link"><span class="nav-icon">🎓</span><span
+                        class="nav-text">Education</span></a>
+                <a href="#skills" class="nav-link"><span class="nav-icon">🛠️</span><span
+                        class="nav-text">Skills</span></a>
+                <a href="#projects" class="nav-link"><span class="nav-icon">🚀</span><span
+                        class="nav-text">Projects</span></a>
+                <a href="#contact" class="nav-link"><span class="nav-icon">📧</span><span
+                        class="nav-text">Contact</span></a>
+                <a href="Amit Ku. Pati.pdf" download class="resume-btn">
                     <span class="nav-icon">📄</span>
                     <span class="nav-text">Resume</span>
                     <i class="fas fa-download"></i>
@@ -580,10 +619,10 @@
         </div>
     </nav>
 
-    <header>
+    <header onclick="window.location.href='#'">
         <h1 style="text-decoration: underline 4px var(--accent-color); text-underline-offset: 12px;"> AMIT KUMAR PATI
         </h1>
-        <p>🚀 Full-Stack Developer | 🎓 MCA Student | 🤖 AI Enthusiast</p>
+        <p>🚀 Software Engineer | 🎓 MCA Student | 🤖 AI Enthusiast</p>
         <div class="location">
             <i class="fas fa-map-marker-alt"></i>
             Sripura, Pubasahi, Jajpur, Odisha, India - 755006
@@ -592,7 +631,7 @@
     </header>
 
     <main class="container">
-        <section id="about">
+        <section id="about" onclick="window.location.href='#about'">
             <h2><i class="fas fa-bullseye"></i> Professional Objective</h2>
             <p>Aspiring Software Developer with a strong academic foundation in Computer Applications and hands-on
                 experience in Full-Stack Development. Passionate about problem-solving, software development, and AI
@@ -601,30 +640,37 @@
             </p>
         </section>
 
-        <section id="experience" class="experience-section">
+        <section id="experience" class="experience-section" onclick="window.location.href='#experience'">
             <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
             <div class="experience-container">
                 <div class="experience-item">
-                    <h3><i class="fas fa-code"></i> Full-Stack Developer Intern</h3>
+                    <h3><i class="fas fa-code"
+                            onclick="window.location.href='https://drive.google.com/drive/folders/1Ft1VVBn6aUsjOwostQXPMn-LI6C1mnkM'"></i>
+                        Full-Stack Developer Intern [Certificate]</h3>
                     <p class="company">
                         <i class="fas fa-building"></i>
-                        <span class="company-details">
+                        <span class="company-details"
+                            onclick="window.location.href='https://www.linkedin.com/company/graviton-web-technologies/'">
                             Graviton Web Technology, Bengaluru (Remote)
                             <span class="date">June 2023 - December 2023</span>
                         </span>
                     </p>
                     <ul>
-                        <li>Developed responsive web interfaces using HTML, CSS, JavaScript, and frameworks like React.js,
+                        <li>Developed responsive web interfaces using HTML, CSS, JavaScript, and frameworks like
+                            React.js,
                             Angular, Next.js</li>
                         <li>Worked on backend services using Node.js, Express.js, MongoDB, and MySQL</li>
                         <li>Integrated APIs and implemented UI components for client projects</li>
                     </ul>
                 </div>
                 <div class="experience-item">
-                    <h3><i class="fas fa-code"></i> Web Development Intern</h3>
+                    <h3><i class="fas fa-code"
+                            onclick="window.location.href='https://drive.google.com/drive/folders/1Fvhybnro-VrkUyzY0eeN90FRQTRYb1Al'"></i>
+                        Web Development Intern [Certificate]</h3>
                     <p class="company">
                         <i class="fas fa-building"></i>
-                        <span class="company-details">
+                        <span class="company-details"
+                            onclick="window.location.href='https://www.linkedin.com/company/veritech-software-it-services-pvt-ltd/'">
                             VeriTech Software IT Services, Noida (Remote)
                             <span class="date">March 2024 - June 2024</span>
                         </span>
@@ -638,27 +684,34 @@
             </div>
         </section>
 
-        <section id="education">
+        <section id="education" onclick="window.location.href='#education'">
             <h2><i class="fas fa-graduation-cap"></i> Education</h2>
             <div class="education-item">
-                <h3><i class="fas fa-university"></i> Master of Computer Applications (MCA)</h3>
+                <h3><i class="fas fa-university" onclick="window.location.href='#'"></i> Master of Computer Applications
+                    (MCA)</h3>
                 <p>Einstein Academy of Technology And Management | 2024 - 2026</p>
             </div>
             <div class="education-item">
-                <h3><i class="fas fa-university"></i> Bachelor of Computer Application (BCA)</h3>
+                <h3><i class="fas fa-university"
+                        onclick="window.location.href='https://drive.google.com/drive/folders/1FbCxjIEMmkRmfDzuyyqS26zlopkIstuC'"></i>
+                    Bachelor of Computer Application (BCA)</h3>
                 <p>NC Autonomous College, Jajpur | 2019 - 2022</p>
             </div>
             <div class="education-item">
-                <h3><i class="fas fa-school"></i> +2 Science</h3>
+                <h3><i class="fas fa-school"
+                        onclick="window.location.href='https://drive.google.com/drive/folders/1FnfgOdrCZdUb4Atrj88_zKSyxq0Ryhaq'"></i>
+                    +2 Science</h3>
                 <p>Salandi Residential College, Bhadrak | 2017 - 2019</p>
             </div>
             <div class="education-item">
-                <h3><i class="fas fa-school"></i> 10th Board Examination</h3>
+                <h3><i class="fas fa-school"
+                        onclick="window.location.href='https://drive.google.com/drive/folders/1FoLuYA2-mGzcY996sR893nmlSk-vaNb5'"></i>
+                    10th Board Examination</h3>
                 <p>Nandipur High School, Nandipur | 2016 - 2017</p>
             </div>
         </section>
 
-        <section id="skills">
+        <section id="skills" onclick="window.location.href='#skills'">
             <h2><i class="fas fa-tools"></i> Technical Skills</h2>
             <div class="skill-list">
                 <span class="skill-item"><i class="fas fa-code"></i> HTML, CSS, JavaScript, TypeScript</span>
@@ -672,25 +725,41 @@
                 <span class="skill-item"><i class="fas fa-robot"></i> AI & GPT Integration</span>
                 <span class="skill-item"><i class="fas fa-project-diagram"></i> Data Structures & Algorithms</span>
             </div>
+            <br>
+            <h2><i class="fas fa-certificate"></i> Certificate & Achievements </h2>
+            <a href="https://drive.google.com/drive/folders/1tsCtQ_JYuzXip73KkEP-D5zrPfd9VF0H?usp=drive_link" download
+                class="resume-btn">
+                <span class="nav-icon">📄</span>
+                <span class="nav-text">Click her to Verify Certificate & Achievements</span>
+                <i class="fas fa-download"></i>
+            </a>
         </section>
 
-        <section id="projects">
+        <section id="projects" onclick="window.location.href='#projects'">
             <h2><i class="fas fa-project-diagram"></i> Projects</h2>
             <div class="projects-grid">
-                <div class="project-card"><i class="fas fa-home"></i> Real Estate Listing Platform<br />Next.js,
-                    Tailwind CSS</div>
-                <div class="project-card"><i class="fas fa-briefcase"></i> Job Application Portal<br />Angular,
-                    Bootstrap</div>
-                <div class="project-card"><i class="fas fa-calendar-alt"></i> Event Management System<br />Angular,
-                    Tailwind CSS</div>
-                <div class="project-card"><i class="fas fa-tasks"></i> Task Management App<br />React, Tailwind CSS
-                </div>
-                <div class="project-card"><i class="fas fa-blog"></i> Blog Application<br />MEAN Stack</div>
-                <div class="project-card"><i class="fas fa-book"></i> Book Store App<br />MERN Stack</div>
+                <a href="https://realestate-listing.vercel.app" target="_blank" class="project-card">
+                    <i class="fas fa-home"></i> Real Estate Listing Platform<br />Next.js, Tailwind CSS
+                </a>
+                <a href="https://job-portal.vercel.app" target="_blank" class="project-card">
+                    <i class="fas fa-briefcase"></i> Job Application Portal<br />Angular, Bootstrap
+                </a>
+                <a href="https://event-management.vercel.app" target="_blank" class="project-card">
+                    <i class="fas fa-calendar-alt"></i> Event Management System<br />Angular, Tailwind CSS
+                </a>
+                <a href="https://task-management.vercel.app" target="_blank" class="project-card">
+                    <i class="fas fa-tasks"></i> Task Management App<br />React, Tailwind CSS
+                </a>
+                <a href="https://blog-app.vercel.app" target="_blank" class="project-card">
+                    <i class="fas fa-blog"></i> Blog Application<br />MEAN Stack
+                </a>
+                <a href="https://bookstore-app.vercel.app" target="_blank" class="project-card">
+                    <i class="fas fa-book"></i> Book Store App<br />MERN Stack
+                </a>
             </div>
         </section>
 
-        <section id="contact">
+        <section id="contact" onclick="window.location.href='#contact'">
             <h2><i class="fas fa-envelope"></i> Contact</h2>
             <div class="contact-links">
                 <a href="mailto:apati9587@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
@@ -698,6 +767,13 @@
                 <a href="https://linkedin.com/in/AmitKumarPati" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/sanuamit" title="GitHub"><i class="fab fa-github"></i></a>
             </div>
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3734.931673510896!2d86.33742731491443!3d20.847999986089387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1a1d0b1d45e731%3A0x3c8c41c0d6e2cfe4!2sJajpur%2C%20Odisha!5e0!3m2!1sen!2sin!4v1624901234567!5m2!1sen!2sin"
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+            <br>
             <div class="declaration">
                 <p>I hereby declare that the above information is true to the best of my knowledge. Excited to
                     contribute my skills to innovative projects and grow within the tech industry. Let's shape the
@@ -706,7 +782,7 @@
         </section>
     </main>
 
-    <footer>
+    <footer onclick="window.location.href='#'">
         <p>© 2024 Amit Kumar Pati. All rights reserved. ⚡</p>
     </footer>
 
@@ -738,11 +814,13 @@
                 navbar.style.backdropFilter = 'blur(15px)';
             }
         });
+
         document.addEventListener('click', (e) => {
             if (!e.target.closest('.nav-container')) {
                 navLinks.classList.remove('active');
             }
         });
+
         window.addEventListener('resize', () => {
             if (window.innerWidth > 768) {
                 navLinks.classList.remove('active');
